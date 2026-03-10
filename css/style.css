@@ -59,7 +59,11 @@
   border: none;
   color: white;
   font-weight: bold;
-  margin-bottom: 90px;
+  margin-bottom: 60px;
+}
+
+.box-login-screen p {
+  margin-bottom: 25px;
 }
 
 .btn-register {
@@ -141,7 +145,7 @@
   width: 90%;
   margin-inline: auto;
   margin-top: 30px;
-  height: 45vh;
+  height: 60vh;
   overflow: auto;
 }
 

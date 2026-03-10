@@ -18,17 +18,18 @@
     <div class="box-login-s displayHidden">
       <div class="box-login-screen">
         <img src="./assets/logoTXT.svg" alt="Lodo do app" />
-
+        
         <div class="box-input">
-          <input type="text" placeholder="E-mail" />
-          <input type="text" placeholder="Senha" />
+          <input type="text" placeholder="E-mail" id="emailUser" />
+          <input type="text" placeholder="Senha" id="passwordUser" />
           <a href="">Esqueci minha senha</a>
         </div>
-
-        <button>ENTRAR</button>
+        
+        <button onclick="loginApp()">ENTRAR</button>
+        <p class="msgAlert displayHidden">Credenciais Inválidas</p>
         <div class="btn-register">
           <p>Não tenho conta</p>
-          <a class="register" href="#">Cadastre-se</a>
+          <a onclick="openDrawerRegisterNewUser()" class="register" href="#">Cadastre-se</a>
         </div>
       </div>
     </div>
@@ -39,119 +40,35 @@
 
         <div class="input-data-user-register">
           <h2>Crie sua Conta</h2>
-          <input type="text" placeholder="Nome Completo" />
-          <input type="text" placeholder="E-mail" />
-          <input type="text" placeholder="Telefone" />
-          <input type="text" placeholder="Senha" />
+          <input type="text" placeholder="Nome Completo" id="fullNameUser"/>
+          <input type="text" placeholder="E-mail" id="emailUser"/>
+          <input type="tel" placeholder="Telefone" id="telNumberUser"/>
+          <input type="password" placeholder="Senha" id="passwordUser"/>
 
-          <button>CADASTRAR</button>
+          <button onclick="register()">CADASTRAR</button>
 
           <div class="option-login">
             <p>Já possui conta?</p>
-            <a href="#">Fazer Login</a>
+            <a onclick="backToLogin()" href="#">Fazer Login</a>
           </div>
         </div>
       </div>
     </div>
 
     <!-- SCREEN ALL DATA -->
-    <div class="box-register-r displayHidden">
+    <div class="box-register-d displayHidden">
     <div class="screen-allData-d ">
       <div class="screen-allData-Display">
-        <div class="dataUserIdentification">Olá <strong>Rafa!</strong></div>
-        <div>Bem vindo(a)</div>
+       
       </div>
 
       <div class="display">
-        <h3>SALDO ATUAL</h3>
-        <strong>R$4.500,00</strong>
+        
       </div>
 
       <ul class="ulListData">
-        <li>
-          <div>Luz</div>
-          <div>R$120</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="saida">Saída</div>
-        </li>
-        <li>
-          <div>Música</div>
-          <div>R$200</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="entrada">Entrada</div>
-        </li>
-        <li>
-          <div>Luz</div>
-          <div>R$120</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="saida">Saída</div>
-        </li>
-        <li>
-          <div>Música</div>
-          <div>R$200</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="entrada">Entrada</div>
-        </li>
-        <li>
-          <div>Luz</div>
-          <div>R$120</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="saida">Saída</div>
-        </li>
-        <li>
-          <div>Música</div>
-          <div>R$200</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="entrada">Entrada</div>
-        </li>
-        <li>
-          <div>Luz</div>
-          <div>R$120</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="saida">Saída</div>
-        </li>
-        <li>
-          <div>Música</div>
-          <div>R$200</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="entrada">Entrada</div>
-        </li>
-        <li>
-          <div>Luz</div>
-          <div>R$120</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="saida">Saída</div>
-        </li>
-        <li>
-          <div>Música</div>
-          <div>R$200</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="entrada">Entrada</div>
-        </li>
-        <li>
-          <div>Luz</div>
-          <div>R$120</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="saida">Saída</div>
-        </li>
-        <li>
-          <div>Música</div>
-          <div>R$200</div>
-          <div>08/03/2026</div>
-          <div><ion-icon name="create-outline"></ion-icon></div>
-          <div class="entrada">Entrada</div>
-        </li>
+        
+        
       </ul>
 
       <div class="box-add-data">
@@ -164,16 +81,17 @@
     <div class="box-register-r displayHidden">
     <div class="box-screen-ghost-display-g ">
       <div class="screen-ghost-display">
-        <input type="text" placeholder="Transação" />
-        <input type="text" placeholder="Valor" />
+        <input type="text" placeholder="Transação" id="nameTransaction" />
+        <input type="text" placeholder="Valor"  id="valueTransaction"/>
 
         <div class="transactions-btn-actions">
           <button class="despesa">Despesa</button>
           <button class="receita">Entrada</button>
         </div>
 
-        <button class="btn-register-ghost">REGISTRAR</button>
+        <button onclick="addOrder()" class="btn-register-ghost">REGISTRAR</button>
       </div>
+    </div>
     </div>
     <!-- =====================ION-ICON============================= -->
     <script
@@ -184,5 +102,7 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+
+  <script src="./app.js"></script>
   </body>
 </html>
