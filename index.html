@@ -73,23 +73,23 @@
 
       <div class="box-add-data">
         <ion-icon name="trash-outline"></ion-icon>
-        <div class="add">+</div>
+        <div onclick="openGhostDrawer()" class="add">+</div>
         <ion-icon name="exit-outline"></ion-icon>
       </div>
     </div>
 
-    <div class="box-register-r displayHidden">
+    <div class="box-register-r box-register-ghost displayHidden">
     <div class="box-screen-ghost-display-g ">
       <div class="screen-ghost-display">
         <input type="text" placeholder="Transação" id="nameTransaction" />
         <input type="text" placeholder="Valor"  id="valueTransaction"/>
 
         <div class="transactions-btn-actions">
-          <button class="despesa">Despesa</button>
-          <button class="receita">Entrada</button>
+          <button onclick="setSaida()" class="despesa">Despesa</button>
+          <button onclick="setEntrada()" class="receita">Entrada</button>
         </div>
 
-        <button onclick="addOrder()" class="btn-register-ghost">REGISTRAR</button>
+        <button onclick="insertData()" class="btn-register-ghost">REGISTRAR</button>
       </div>
     </div>
     </div>

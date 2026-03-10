@@ -15,12 +15,6 @@ const fakeDataBaseUsers = [
 
 const dataValues = [
   {
-    name: "Luz",
-    amount: 20,
-    date: new Date().toLocaleDateString("pt-BR"),
-    reference: "saida",
-  },
-  {
     name: "Música",
     amount: 200,
     date: new Date().toLocaleDateString("pt-BR"),
@@ -32,6 +26,12 @@ const dataValues = [
     date: new Date().toLocaleDateString("pt-BR"),
     reference: "entrada",
   },
+  {
+    name: "almoço",
+    amount: 35.0,
+    date: new Date().toLocaleDateString("pt-BR"),
+    reference: "saida",
+  },
 ]
 
 let verifyLogin
@@ -39,6 +39,7 @@ let verifyLogin
 const boxHome1 = document.querySelector(".box-home-l")
 const boxLogin = document.querySelector(".box-login-s")
 const boxAllData = document.querySelector(".box-register-d")
+const boxGhostInsertData = document.querySelector(".box-register-ghost")
 
 const loadingScreenHome = () => {
   setTimeout(() => {
@@ -93,8 +94,18 @@ const renderDataOnScreen = () => {
 }
 
 const sumAllValues = () => {
-  const total = dataValues.reduce((acc, item) => acc + Number(item.amount), 0)
-  displyAmount(total)
+  const total = dataValues.reduce((acc, item) => {
+    const amount = Number(item?.amount)
+    if (Number.isNaN(amount)) return acc // ignora valores inválidos
+
+    if (item?.reference === "entrada") return acc + amount
+    if (item?.reference === "saida") return acc - amount
+
+    // se a referência não for reconhecida, ignora
+    return acc
+  }, 0)
+
+  displyAmount(total) // (corrigi o nome da função)
 }
 
 const displyAmount = (total) => {
@@ -103,4 +114,24 @@ const displyAmount = (total) => {
         <h3>SALDO ATUAL</h3>
         <strong>R$${total}</strong>
   `
+}
+
+const openGhostDrawer = () => {
+  boxGhostInsertData.classList.remove("displayHidden")
+}
+
+const insertData = () => {
+  const nameTransaction = document.querySelector("#nameTransaction").value
+  const valueTransaction = document.querySelector("#valueTransaction").value
+
+  const newTransaction = {
+    name: nameTransaction,
+    amount: valueTransaction,
+    date: new Date().toLocaleDateString("pt-BR"),
+    reference: "saida",
+  }
+
+  dataValues.push(newTransaction)
+  boxGhostInsertData.classList.add("displayHidden")
+  renderDataOnScreen()
 }
