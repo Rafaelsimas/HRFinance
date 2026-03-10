@@ -88,5 +88,19 @@ const renderDataOnScreen = () => {
           <div class="${data.reference}">${data.reference}</div>
         </li>
     `
+    sumAllValues()
   })
+}
+
+const sumAllValues = () => {
+  const total = dataValues.reduce((acc, item) => acc + Number(item.amount), 0)
+  displyAmount(total)
+}
+
+const displyAmount = (total) => {
+  const displayAmoutValue = document.querySelector(".display")
+  displayAmoutValue.innerHTML = `
+        <h3>SALDO ATUAL</h3>
+        <strong>R$${total}</strong>
+  `
 }
